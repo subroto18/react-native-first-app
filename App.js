@@ -1,20 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  useColorScheme,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
+import FlatCard from "./componenta/FlatCard";
+import ElevatedCard from "./componenta/ElevatedCard";
+import FancyCard from "./componenta/FlatCard";
+import FancyImage from "./componenta/FancyImage";
+import Blog from "./componenta/Blog";
+import User from "./componenta/User";
 
-export default function App() {
+const App = () => {
+  const isDarkMode = useColorScheme() === "dark";
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <FlatCard />
+        <ElevatedCard />
+        <FancyImage />
+        <Blog />
+        <User></User>
+      </ScrollView>
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
